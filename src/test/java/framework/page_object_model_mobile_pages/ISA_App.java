@@ -11,30 +11,14 @@ public class ISA_App extends MobileBasePage {
     @iOSFindBy(accessibility = "yesButton")
     private MobileElement yesButton;
 
-    @AndroidFindBy(xpath= "//android.webkit.WebView/android.view.View/android.widget.Button[1]")
-    private MobileElement mainMenu;
+    @AndroidFindBy(xpath = "//android.widget.Button[@content-desc='CONTINUE arrow forward ']")
+    private MobileElement continueButton;
 
-    @AndroidFindBy(xpath= "//android.view.View[@content-desc='Menu']")
-    private MobileElement sidebarHeader;
+    public void swipe() throws Exception {
+        swipeVertical(1000, 1000, 200, 400);
+        swipeVertical(1000, 1000, 200, 400);
+        swipeVertical(1000, 1000, 200, 400);}
 
-    @AndroidFindBy(xpath = "//android.widget.ToggleButton[@content-desc='FAVORITES ']")
-    private MobileElement clickOnFavorites;
-
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc='No Sessions Found']")
-    private MobileElement noSessionsFoundText;
-
-    public void tapOnSkipButton() {
-        tapOn(yesButton);
-    }
-
-    public void tapOnMainMenuButton() {
-        tapOn(mainMenu);
-    }
-
-    public void tapOnFavorites() { tapOn(clickOnFavorites);}
-
-    public boolean isSideMenuBarDisplayed() { return isElementDisplayed(sidebarHeader); }
-
-    public boolean isNoSessionsFoundDisplayed() { return isElementDisplayed(noSessionsFoundText); }
+    public void verifyContinueText() { textDisplayed(continueButton); }
 }
 

@@ -2,11 +2,11 @@ package framework.actions_apps;
 
 import framework.AppiumWrapper;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import stepdefinition.SharedSD;
 
 import java.util.concurrent.TimeUnit;
 
@@ -73,7 +73,7 @@ public class MobileBasePage {
         return true;
     }
 
-    protected void copyText(MobileElement mobileElement) {
+    protected void getText(MobileElement mobileElement) {
         try {
             mobileElement.getText();
         } catch (NoSuchElementException e) {
@@ -84,5 +84,24 @@ public class MobileBasePage {
 
     protected void compare(String actualText, String expectedText) {
         Assert.assertEquals(actualText, expectedText);
+    }
+
+    public void textDisplayed(MobileElement mobileElement) {
+        try {
+            mobileElement.isDisplayed();
+        }
+        catch (NoSuchElementException e) {
+            e.printStackTrace();
+            throw new NoSuchElementException("Unable to locate the Element using: " + mobileElement.toString());
+        }
+    }
+
+    public static void swipeVertical( int xPress, int yPress, int xMoveTo, int yMoveTo) throws Exception {
+        Thread.sleep(5000);
+        new TouchAction(AppiumWrapper.getAppiumDriver())
+                .longPress(xPress,yPress)
+                .moveTo(xMoveTo, yMoveTo)
+                .release()
+                .perform();
     }
 }
