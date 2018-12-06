@@ -12,7 +12,7 @@ public class ISA_AppSD {
 
     ISA_App isa = new ISA_App();
 
-    //@mobile-3-tutorial-swipe
+    //@mobile-1-tutorial-swipe
     @When("^I swipe right 3 times on tutorials slides$")
     public void iSwipeRightTimesOnTutorialsSlides() throws Exception { isa.swipe(); }
 
