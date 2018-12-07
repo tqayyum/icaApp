@@ -96,6 +96,15 @@ public class MobileBasePage {
         }
     }
 
+    public void enabled(MobileElement mobileElement) {
+        try {
+            mobileElement.isEnabled();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            throw new NoSuchElementException("Unable to locate the Element using: " + mobileElement.toString());
+        }
+    }
+
     public static void swipeVertical( int xPress, int yPress, int xMoveTo, int yMoveTo) throws Exception {
         Thread.sleep(5000);
         new TouchAction(AppiumWrapper.getAppiumDriver())
