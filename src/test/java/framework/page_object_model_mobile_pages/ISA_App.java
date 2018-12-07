@@ -38,7 +38,7 @@ public class ISA_App extends MobileBasePage {
     @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1169][1386,1242]']")
     private MobileElement food;
 
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[[1316,1330][1386,1403]']")
+    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1330][1386,1403]']")
     private MobileElement ionic;
 
     @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1491][1386,1564]']")

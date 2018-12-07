@@ -42,5 +42,5 @@ public class ISA_AppSD {
 
 
     @Then("^I verify all options are enabled$")
-    public void iVerifyAllOptionsAreEnabled() { }
+    public void iVerifyAllOptionsAreEnabled() { isa.verifyAllOptionsEnabled(); }
 }
