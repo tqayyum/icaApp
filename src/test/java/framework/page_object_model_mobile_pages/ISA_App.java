@@ -54,9 +54,10 @@ public class ISA_App extends MobileBasePage {
     private MobileElement workshop;
 
     public void swipe() throws Exception {
-        swipeVertical(1000, 1000, 200, 400);
-        swipeVertical(1000, 1000, 200, 400);
-        swipeVertical(1000, 1000, 200, 400);}
+        for (int i = 0; i < 3; i++) {
+            swipeHorizontal(0.4, 0.1, 0.7);
+        }
+    }
 
     public void verifyContinueText() { textDisplayed(continueButton); }
 

@@ -7,7 +7,7 @@ Feature: Mobile
   @mobile-1-tutorial-swipe
   Scenario: Verify user should be able to slide right on tutorial pages
     When I swipe right 3 times on tutorials slides
-    Then I verify Continue button is displayed
+ #   Then I verify Continue button is displayed
 
   @mobile-2-filter-options
   Scenario: User should be able filter options

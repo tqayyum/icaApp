@@ -4,6 +4,7 @@ import framework.AppiumWrapper;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -107,11 +108,16 @@ public class MobileBasePage {
         return true;
     }
 
-    public static void swipeVertical( int xPress, int yPress, int xMoveTo, int yMoveTo) throws Exception {
+    public static void swipeHorizontal( double startPercentage, double endPercentage, double anchorPercentage) throws Exception {
+        Dimension size = AppiumWrapper.getAppiumDriver().manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * endPercentage);
+
         Thread.sleep(5000);
         new TouchAction(AppiumWrapper.getAppiumDriver())
-                .longPress(xPress,yPress)
-                .moveTo(xMoveTo, yMoveTo)
+                .longPress(startPoint, anchor)
+                .moveTo(endPoint, anchor)
                 .release()
                 .perform();
     }
