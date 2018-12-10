@@ -96,13 +96,15 @@ public class MobileBasePage {
         }
     }
 
-    public void enabled(MobileElement mobileElement) {
+    public Boolean isEnabled(MobileElement mobileElement) {
         try {
             mobileElement.isEnabled();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             throw new NoSuchElementException("Unable to locate the Element using: " + mobileElement.toString());
         }
+
+        return true;
     }
 
     public static void swipeVertical( int xPress, int yPress, int xMoveTo, int yMoveTo) throws Exception {

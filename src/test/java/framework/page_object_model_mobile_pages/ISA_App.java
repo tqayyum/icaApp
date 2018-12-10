@@ -62,26 +62,36 @@ public class ISA_App extends MobileBasePage {
 
     public void tapOnSkip() { tapOn(skip); }
 
+    public void tapOnContinue() { tapOn(continueButton); }
+
     public void tapOnFilter() { tapOn(filter); }
 
     public void tapOnAngular() { tapOn(angular); }
 
-    public void verifyAngularIsDisabled() { enabled(angular); }
+    public void verifyAngularIsDisabled() {
+
+        if (isEnabled(angular) == true){
+            System.out.println("Asset is disabled");
+        } else {
+            System.out.println("Asset is enabled");
+        }
+    }
 
     public void tapOnResetAllFiler() { tapOn(resetAll);}
 
     public void verifyAllOptionsEnabled() {
-        enabled(angular);
-        enabled(communication);
-        enabled(design);
-        enabled(documentation);
-        enabled(food);
-        enabled(ionic);
-        enabled(navigation);
-        enabled(services);
-        enabled(tooling);
-        enabled(workshop);
+        isEnabled(angular);
+        isEnabled(communication);
+        isEnabled(design);
+        isEnabled(documentation);
+        isEnabled(food);
+        isEnabled(ionic);
+        isEnabled(navigation);
+        isEnabled(services);
+        isEnabled(tooling);
+        isEnabled(workshop);
     }
 
+    public void enterTextIntoSearchField() { }
 }
 

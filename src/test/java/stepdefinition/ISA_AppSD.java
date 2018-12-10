@@ -43,4 +43,15 @@ public class ISA_AppSD {
 
     @Then("^I verify all options are enabled$")
     public void iVerifyAllOptionsAreEnabled() { isa.verifyAllOptionsEnabled(); }
+
+    //@mobile-3-search-event
+    //************************************************
+    @When("^Search for \"([^\"]*)\"$")
+    public void searchFor(String arg0) {
+        isa.tapOnSkip();
+    }
+
+    @Then("^I verify Event displayed with header, Duration, description$")
+    public void iVerifyEventDisplayedWithHeaderDurationDescription() { }
+
 }

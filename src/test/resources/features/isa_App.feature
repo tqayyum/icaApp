@@ -1,5 +1,5 @@
 @mobile-regression @mobile-login @mobile
-Feature: Mobile Login Feature
+Feature: Mobile
 
   Background:
     Given I am on a home page of the app
@@ -14,4 +14,9 @@ Feature: Mobile Login Feature
     When I click on filter button
     And I disable "Angular" option
     And I click on All Reset Filer button
-    Then I verify all options are enabled
+#    Then I verify all options are enabled
+
+#  @mobile-3-search-event
+#  Scenario: Verify user should be able to search for event
+#    When Search for "Breakfast"
+#    Then I verify Event displayed with header, Duration, description
