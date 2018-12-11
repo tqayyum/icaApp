@@ -5,6 +5,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
+import java.util.List;
+
 public class ISA_App extends MobileBasePage {
 
     @AndroidFindBy(xpath = "//android.widget.Button[@content-desc='SKIP ']")
@@ -20,46 +22,21 @@ public class ISA_App extends MobileBasePage {
     @AndroidFindBy(xpath = "//android.widget.Button[@content-desc='SKIP ']")
     private MobileElement skip;
 
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,525][1386,598]']")
+    @AndroidFindBy(xpath = "//android.webkit.WebView/android.view.View[@content-desc='Angular']//following-sibling::android.widget.CheckBox")
     private MobileElement angular;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@content-desc='Reset All Filters ']")
     private MobileElement resetAll;
 
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,686][1386,759]']")
-    private MobileElement communication;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,847][1386,920]']")
-    private MobileElement design;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1008][1386,1081]']")
-    private MobileElement documentation;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1169][1386,1242]']")
-    private MobileElement food;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1330][1386,1403]']")
-    private MobileElement ionic;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1491][1386,1564]']")
-    private MobileElement navigation;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1652][1386,1725]']")
-    private MobileElement services;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1813][1386,1886]']")
-    private MobileElement tooling;
-
-    @AndroidFindBy(xpath = "//android.view.View[@bounds='[1316,1974][1386,2047]']")
-    private MobileElement workshop;
-
+    @AndroidFindBy(xpath = "//android.webkit.WebView/android.view.View[@content-desc='Angular']//following-sibling::android.widget.CheckBox")
+    private List<MobileElement> allButtons;
     public void swipe() throws Exception {
         for (int i = 0; i < 3; i++) {
             swipeHorizontal(0.4, 0.1, 0.7);
         }
     }
 
-    public void verifyContinueText() { textDisplayed(continueButton); }
+    public void verifyContinueText() { isElementDisplayed(continueButton); }
 
     public void tapOnSkip() { tapOn(skip); }
 
@@ -81,16 +58,7 @@ public class ISA_App extends MobileBasePage {
     public void tapOnResetAllFiler() { tapOn(resetAll);}
 
     public void verifyAllOptionsEnabled() {
-        isEnabled(angular);
-        isEnabled(communication);
-        isEnabled(design);
-        isEnabled(documentation);
-        isEnabled(food);
-        isEnabled(ionic);
-        isEnabled(navigation);
-        isEnabled(services);
-        isEnabled(tooling);
-        isEnabled(workshop);
+        listTest(allButtons);
     }
 
     public void enterTextIntoSearchField() { }

@@ -34,7 +34,7 @@ public class ISA_AppSD {
     @And("^I disable \"Angular\" option$")
     public void iDisableOption() {
         isa.tapOnAngular();
-        isa.verifyAngularIsDisabled();
+        //isa.verifyAngularIsDisabled();
     }
 
     @And("^I click on All Reset Filer button$")
