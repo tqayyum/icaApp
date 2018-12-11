@@ -46,20 +46,11 @@ public class ISA_App extends MobileBasePage {
 
     public void tapOnAngular() { tapOn(angular); }
 
-    public void verifyAngularIsDisabled() {
-
-        if (isEnabled(angular) == true){
-            System.out.println("Asset is disabled");
-        } else {
-            System.out.println("Asset is enabled");
-        }
-    }
+    public void verifyAngularIsDisabled() { if (isEnabled(angular) == true){ } }
 
     public void tapOnResetAllFiler() { tapOn(resetAll);}
 
-    public void verifyAllOptionsEnabled() {
-        listTest(allButtons);
-    }
+    public void verifyAllOptionsEnabled() { listTest(allButtons); }
 
     public void enterTextIntoSearchField() { }
 }
