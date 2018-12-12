@@ -1,14 +1,22 @@
 @mobile-regression @mobile-login @mobile
-Feature: Mobile Login Feature
+Feature: Mobile
 
-#  @mobile-login-1
-#  Scenario: Verify sidebar validation
-#    When I click on skip button
-#    And I click on menu button
-#    Then I verify sidebar menu is displayed
+  Background:
+    Given I am on a home page of the app
 
-  @mobile-login-2
-  Scenario: Verify favorites empty state text
-    When I click on skip button
-    And I click on favorites button
-    Then I verify "No Sessions Found" text displayed
+  @mobile-1-tutorial-swipe
+  Scenario: Verify user should be able to slide right on tutorial pages
+    When I swipe right 3 times on tutorials slides
+    Then I verify Continue button is displayed
+
+  @mobile-2-filter-options
+  Scenario: User should be able filter options
+    When I click on filter button
+    And I disable "Angular" option
+    And I click on All Reset Filer button
+    Then I verify all options are enabled
+
+#  @mobile-3-search-event
+#  Scenario: Verify user should be able to search for event
+#    When Search for "Breakfast"
+#    Then I verify Event displayed with header, Duration, description

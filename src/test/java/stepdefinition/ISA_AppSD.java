@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
@@ -9,27 +11,47 @@ import org.testng.Assert;
 
 public class ISA_AppSD {
 
-    ISA_App landingPage = new ISA_App();
+    ISA_App isa = new ISA_App();
 
-    @When("^I click on skip button")
-    public void clickOnSkipButton() {
-        landingPage.tapOnSkipButton();
+    @Given("^I am on a home page of the app$")
+    public void homePage() { }
+
+    //@mobile-1-tutorial-swipe
+    @When("^I swipe right 3 times on tutorials slides$")
+    public void iSwipeRightTimesOnTutorialsSlides() throws Exception { isa.swipe(); }
+
+    @Then("^I verify Continue button is displayed$")
+    public void iVerifyContinueButtonIsDisplayed() { isa.verifyContinueText();}
+
+    //@mobile-2-filter-options
+    //************************************************
+    @When("^I click on filter button$")
+    public void clickOnFilterButton() {
+        isa.tapOnSkip();
+        isa.tapOnFilter();
     }
 
-    @And("^I click on favorites button$")
-    public void clickOnFavorites() { landingPage.tapOnFavorites(); }
-
-    @When("^I click on menu button$")
-    public void clickOnMenuButton() throws InterruptedException {
-        Thread.sleep(30000);
-        landingPage.tapOnMainMenuButton();
+    @And("^I disable \"Angular\" option$")
+    public void iDisableOption() {
+        isa.tapOnAngular();
+        isa.verifyAngularIsDisabled();
     }
 
-    @Then("^I verify sidebar menu is displayed$")
-    public void verifySidebarMenu() {
-        Assert.assertTrue(landingPage.isSideMenuBarDisplayed());
+    @And("^I click on All Reset Filer button$")
+    public void iClickOnAllResetFilerButton() { isa.tapOnResetAllFiler(); }
+
+
+    @Then("^I verify all options are enabled$")
+    public void iVerifyAllOptionsAreEnabled() { isa.verifyAllOptionsEnabled(); }
+
+    //@mobile-3-search-event
+    //************************************************
+    @When("^Search for \"([^\"]*)\"$")
+    public void searchFor(String arg0) {
+        isa.tapOnSkip();
     }
 
-    @Then("^I verify \"No Sessions Found\" text displayed$")
-    public void veriyNoSessionsFound() {Assert.assertTrue(landingPage.isNoSessionsFoundDisplayed());}
+    @Then("^I verify Event displayed with header, Duration, description$")
+    public void iVerifyEventDisplayedWithHeaderDurationDescription() { }
+
 }
